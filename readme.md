@@ -63,3 +63,9 @@ if __name__ == '__main__':
     cmd.execute()
 
 ```
+
+Após isso, basta executar o arquivo [main.py](main.py) normalmente.
+
+```
+python3 main.py
+```
