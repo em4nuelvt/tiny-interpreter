@@ -53,7 +53,7 @@ A implementação do analisador sintático é um pouco mais extensa e os método
 
 ## Como executar
 
-É necessário adicionar o arquivo .tiny no diretório exemplos e alterar em [main.py](main.py) o caminho do arquivo a ser executado pelo interpretador:
+É necessário adicionar o arquivo .tiny no diretório "exemplos" e alterar em [main.py](main.py) o caminho do arquivo a ser executado pelo interpretador:
 
 ``` py
 if __name__ == '__main__':
