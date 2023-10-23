@@ -4,7 +4,7 @@ from lexical import LexicalAnalysis,TokenType,tt2str
 from syntatic import SyntaticAnalysis
 
 if __name__ == '__main__':
-    lex = LexicalAnalysis('exemplos/neg.tiny')
+    lex = LexicalAnalysis('exemplos/pow.tiny')
     syntactic = SyntaticAnalysis(lex)
     cmd = syntactic.start()
     cmd.execute()
