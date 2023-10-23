@@ -25,24 +25,25 @@ class TokenType(Enum):
     TT_MUL = 11         # *
     TT_DIV = 12          # /
     TT_MOD = 13          # %
+    TT_POT = 14
 
     # Keywords
-    TT_PROGRAM = 14      # program
-    TT_WHILE = 15        # while
-    TT_DO = 16           # do
-    TT_DONE = 17         # done
-    TT_IF = 18         # if
-    TT_THEN = 19         # then
-    TT_ELSE = 20         # else
-    TT_OUTPUT = 21       # output
-    TT_TRUE = 22       # true
-    TT_FALSE = 23        # false
-    TT_READ = 24        # read
-    TT_NOT = 25         # not
+    TT_PROGRAM = 15      # program
+    TT_WHILE = 16        # while
+    TT_DO = 17           # do
+    TT_DONE = 18         # done
+    TT_IF = 19         # if
+    TT_THEN = 20         # then
+    TT_ELSE = 21         # else
+    TT_OUTPUT = 22       # output
+    TT_TRUE = 23       # true
+    TT_FALSE = 24        # false
+    TT_READ = 25        # read
+    TT_NOT = 26         # not
 
     # Others
-    TT_NUMBER = 26       # number
-    TT_VAR = 27         # variable
+    TT_NUMBER = 27       # number
+    TT_VAR = 28         # variable
 
 
 def tt2str(token_type):
@@ -77,6 +78,7 @@ class SymbolTable:
         '*': TokenType.TT_MUL,
         '/': TokenType.TT_DIV,
         '%': TokenType.TT_MOD,
+        '^': TokenType.TT_POT,
 
         # palavras-chave
         'program': TokenType.TT_PROGRAM,
@@ -151,7 +153,7 @@ class LexicalAnalysis:
                     elif c == '!':
                         lex.token += c
                         state = 4
-                    elif c == ';' or c == '+' or c == '-' or c == '*' or c == '/' or c == '%':
+                    elif c == ';' or c == '+' or c == '-' or c == '*' or c == '/' or c == '%' or c=='^':
                         lex.token += c
                         state = 7
                     elif c.isalpha() or c == '_':

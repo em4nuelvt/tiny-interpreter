@@ -14,7 +14,7 @@ class IntExpr(ABC):
     def expr(self):
         pass
 
-# Subclasse BinaryIntExpr
+# Subclasse BinaryIntExpr trata as operações
 class BinaryIntExpr(IntExpr):
     class Op(enum.Enum):
         ADD = 1
@@ -22,6 +22,7 @@ class BinaryIntExpr(IntExpr):
         MUL = 3
         DIV = 4
         MOD = 5
+        POT = 6
 
     def __init__(self, line, left, op, right):
         super().__init__(line)
@@ -40,6 +41,9 @@ class BinaryIntExpr(IntExpr):
             return self._left.expr() / self._right.expr()
         elif self._op == BinaryIntExpr.Op.MOD:
             return self._left.expr() % self._right.expr()
+        elif self._op == BinaryIntExpr.Op.POT:
+            return self._left.expr() ** self._right.expr()
+
 
 # Subclasse ConstIntExpr
 class ConstIntExpr(IntExpr):
@@ -59,7 +63,7 @@ class NegIntExpr(IntExpr):
     def expr(self):
         return -self._expr.expr()
 
-# Subclasse ReadIntExpr
+# Subclasse ReadIntExpr trata leitura
 class ReadIntExpr(IntExpr):
     def __init__(self, line):
         super().__init__(line)

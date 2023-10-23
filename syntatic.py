@@ -162,7 +162,7 @@ class SyntaticAnalysis:
         else:
             left = self.proc_intterm()
 
-        while self.m_current.type in [TokenType.TT_ADD, TokenType.TT_SUB, TokenType.TT_MUL, TokenType.TT_DIV, TokenType.TT_MOD]:
+        while self.m_current.type in [TokenType.TT_ADD, TokenType.TT_SUB, TokenType.TT_MUL, TokenType.TT_DIV, TokenType.TT_MOD, TokenType.TT_POT]:
             line = self.m_lex.line
 
             if self.m_current.type == TokenType.TT_ADD:
@@ -177,8 +177,11 @@ class SyntaticAnalysis:
             elif self.m_current.type == TokenType.TT_DIV:
                 op = BinaryIntExpr.Op.DIV
                 self.advance()
+            elif self.m_current.type==TokenType.TT_POT:
+                op=BinaryIntExpr.Op.POT
+                self.advance()
             else:
-                op = BinaryIntExpr.MOD
+                op = BinaryIntExpr.Op.MOD
                 self.advance()
 
             right = self.proc_intterm()

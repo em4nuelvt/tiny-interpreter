@@ -1,7 +1,7 @@
 from typing import Optional
 from expr import IntExpr, BoolExpr, Variable
 
-# Classe base Command
+# Classe base Command comandos da linguagem como laço de repetição 
 class Command:
     def __init__(self, line: int):
         self._line = line
