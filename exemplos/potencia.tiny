@@ -1,0 +1,13 @@
+#calcula a potencia sem um operador especifico
+
+program
+    base = read;
+    expoente = read;
+    acm = 1;
+
+    while expoente>0 do
+        acm = acm* base;
+        expoente = expoente -1;
+    done;
+
+    output acm;
